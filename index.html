@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Build your own website, free</title>
+  <meta name="description" content="A plain-words guide to building and hosting your own blog or small-business website for free, with nothing for hackers to attack.">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#content">Skip to the guide</a>
+  <main id="content">
+
+    <h1>Build your own website, free</h1>
+    <p class="lede">A blog or small-business site that costs nothing, shows no ads, tracks no one, and has nothing for a hacker to break into.</p>
+
+    <h2 id="what-this-is">What this is</h2>
+    <p>This guide walks you through making a simple website with posts, pictures, and an RSS feed (a way for people to follow your writing without a social media account). You do not need to know how to code. A free chat assistant writes the pages for you, and you copy them where they belong.</p>
+    <p>The site is made of plain files: pages, a stylesheet, and a feed. There is no database, no login page, no plugins, and no server running code. WordPress sites get hacked mostly through those parts. Yours does not have them.</p>
+    <p>One thing can still be attacked: your free GitHub account, where the files live. Step 1 shows how to protect it.</p>
+
+    <h3 id="what-you-need">What you need</h3>
+    <ul>
+      <li>An email address you can check.</li>
+      <li>A free chat assistant open in another browser tab, such as Claude, ChatGPT, or Gemini.</li>
+      <li>About an hour for the first time. Each new post after that takes a few minutes.</li>
+    </ul>
+    <p>Throughout this guide, a box with a <strong>Copy this</strong> button holds text for you to paste into your chat assistant.</p>
+
+    <nav class="toc" aria-labelledby="toc-title">
+      <h2 id="toc-title">The steps</h2>
+      <ol>
+        <li><a href="#make-github-account">Make a free GitHub account</a></li>
+        <li><a href="#make-site-home">Make a home for your site</a></li>
+        <li><a href="#write-your-first-page">Write your first page</a></li>
+        <li><a href="#put-it-online">Put it online</a></li>
+        <li><a href="#write-your-first-post">Write your first post</a></li>
+        <li><a href="#add-your-feed">Add your RSS feed</a></li>
+        <li><a href="#publish-the-next-post">Publish your next post</a></li>
+        <li><a href="#undo-a-mistake">Undo a mistake</a></li>
+        <li><a href="#keep-it-safe">Keep it safe</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="make-github-account">1. Make a free GitHub account</h2>
+    <p>GitHub is a free website that stores files and can show them to the world as a website. Your files will live there.</p>
+    <ol>
+      <li>Go to <a href="https://github.com/signup">github.com/signup</a>.</li>
+      <li>Enter your email address and choose a password.</li>
+      <li>Choose a username. <strong>Your username becomes part of your website address</strong>: if you pick <code>maryjones</code>, your site will be at <code>maryjones.github.io</code>. Use letters and numbers and nothing you will regret in a year.</li>
+      <li>Check your email for the verification code and enter it.</li>
+      <li>Choose the free plan. You never need to enter a credit card for this guide.</li>
+    </ol>
+    <figure class="shot">
+      <div class="placeholder">Screenshot placeholder, 2026-10-23: the GitHub sign-up form, with the username box circled.</div>
+      <figcaption>Circle the username box. This is the name in your website address.</figcaption>
+    </figure>
+
+    <div class="stuck">
+      <p><strong>Protect this account.</strong> It is the one thing on your site that a stranger could try to break into.</p>
+      <ul>
+        <li>Use a password you have never used anywhere else. A password manager helps, or write it on paper and keep it at home.</li>
+        <li>When GitHub offers two-step sign-in (two-factor authentication), say yes. It asks for a code from your phone each time you sign in on a new device.</li>
+        <li>Save the recovery codes GitHub gives you. Print them or store them with your important papers.</li>
+      </ul>
+    </div>
+
+    <div class="stuck">
+      <p><strong>Stuck?</strong> GitHub sometimes changes how its pages look. If a button has moved, look for the same words in a different place. If something does not match this guide, ask your chat assistant: describe what you see on your screen and say which step you are on.</p>
+    </div>
+
+    <h2 id="make-site-home">2. Make a home for your site</h2>
+    <p>On GitHub, a folder that holds a project is called a <em>repository</em>. This guide says "your site's home". It is the same thing.</p>
+    <p>The name of this home must be exact, because GitHub uses it to decide where your site appears.</p>
+    <ol>
+      <li>Sign in to GitHub. Click the <strong>+</strong> button at the top right, then <strong>New repository</strong>.</li>
+      <li>In the name box, type your username followed by <code>.github.io</code>. For <code>maryjones</code> that is <code>maryjones.github.io</code>. Spell it exactly, with no spaces and no capital letters.</li>
+      <li>Choose <strong>Public</strong>. Public means anyone can see your website's files, which is what a website is. Do not put anything private in here, ever.</li>
+      <li>Tick <strong>Add a README file</strong>. This puts one starter file in the home, so it is not empty.</li>
+      <li>Click the green <strong>Create repository</strong> button.</li>
+    </ol>
+    <figure class="shot">
+      <div class="placeholder">Screenshot placeholder, 2026-10-23: the New repository form, with the name box and the Create repository button circled.</div>
+      <figcaption>Circle the name box, then the green Create repository button.</figcaption>
+    </figure>
+
+    <div class="stuck">
+      <p><strong>Stuck?</strong> If GitHub says the name is already taken, check the spelling of your username. If it says the repository exists, you may have already made it. Look for it on your GitHub profile.</p>
+    </div>
+
+    <h2 id="write-your-first-page">3. Write your first page</h2>
+    <p>Now your chat assistant writes the files for your home page. You will give it a set of instructions that keeps your site safe: no tracking, no outside code, nothing that loads from another website.</p>
+
+    <h3 id="first-page-prompt">Ask for your home page</h3>
+    <ol>
+      <li>Click <strong>Copy this</strong> on the box below.</li>
+      <li>Paste it into your chat assistant, but <strong>do not send it yet</strong>.</li>
+      <li>Replace every part in [SQUARE BRACKETS] with your own words. Delete the brackets too.</li>
+      <li>Send it.</li>
+    </ol>
+    <div class="prompt">
+<pre>You are helping me build a small personal website. I am not a programmer, so explain things in plain words.
+
+About me and the site:
+- Site name: [YOUR SITE NAME]
+- What it is about: [ONE OR TWO SENTENCES]
+- My name as I want it shown: [YOUR NAME]
+- My website address will be: https://[YOUR GITHUB USERNAME].github.io
+- Contact email, optional: [YOUR EMAIL, OR WRITE "NONE"]
+
+Make exactly two files for me:
+1. index.html (my home page)
+2. style.css (the styling for every page)
+
+Rules you must follow, with no exceptions:
+- Plain HTML5 and plain CSS only. No JavaScript at all. No frameworks, libraries, or build tools.
+- All styling goes in style.css. Never use style attributes or style tags in the HTML.
+- Never load anything from another website: no fonts, images, scripts, stylesheets, icons, videos, analytics, trackers, social buttons, embeds, or forms. Use only fonts already on the reader's device.
+- In the head, add a Content-Security-Policy meta tag with exactly this value: default-src 'self'; base-uri 'none'; form-action 'none'
+- In the head, add a meta referrer tag set to no-referrer.
+- In the head, add an RSS feed link pointing to /feed.xml with the type application/rss+xml and the site name as its title. I have not made the feed yet, and that is fine.
+- Set the page language to English. Give the page a title and a short description. Add a viewport tag so it works on phones.
+- If I gave an email address, show it as a plain mailto link. If I wrote NONE, show no contact details.
+
+Design:
+- Large, easy-to-read text (at least 18px), high contrast, one column no wider than about 40rem.
+- Works in both light and dark mode using prefers-color-scheme.
+- Pictures must never be wider than the page, and must keep their proportions.
+- A header with the site name, a short about paragraph, then a Posts section.
+- The Posts section is an unordered list with the class post-list, newest first. Each item has a link to posts/short-name.html and the date in a time tag. For now, show one plain sentence saying my first post is coming soon, instead of a list.
+- A footer with a "Follow with RSS" link to feed.xml.
+
+Show each file in its own code block with the exact file name on the line just above it. After the files, tell me in plain words anything you added that I did not ask for.</pre>
+      <button type="button">Copy this</button>
+    </div>
+    <p>If the button does nothing, select the text in the box and copy it the usual way.</p>
+
+    <h3 id="check-the-first-page">Check what it gave you</h3>
+    <p>Assistants sometimes add things you asked them not to. Paste this next to ask for a check. It takes ten seconds.</p>
+    <div class="prompt">
+<pre>Look at the two files you just wrote. Does anything in them load from another website, use JavaScript, or use a style attribute or style tag? Answer yes or no. If yes, list each one and give me corrected versions of both files.</pre>
+      <button type="button">Copy this</button>
+    </div>
+    <p>If the answer is yes, use the corrected files. If it is no, move on.</p>
+
+    <h3 id="save-first-page-files">Save the files on GitHub</h3>
+    <p>You will make two files in your site's home, one at a time.</p>
+    <ol>
+      <li>Open your site's home on GitHub: <code>github.com/your-username/your-username.github.io</code>.</li>
+      <li>Click <strong>Add file</strong>, then <strong>Create new file</strong>.</li>
+      <li>In the name box at the top, type <code>index.html</code>. Use lowercase, exactly as written.</li>
+      <li>Click into the large box below it and paste the contents of the <code>index.html</code> block from your chat assistant. Paste only what is inside the block, not the file name above it.</li>
+      <li>Click the green <strong>Commit changes</strong> button at the top right. In the box that opens, click <strong>Commit changes</strong> again. GitHub's word for "save" is "commit".</li>
+      <li>Repeat steps 2 to 5 for the second file, named <code>style.css</code>.</li>
+    </ol>
+    <figure class="shot">
+      <div class="placeholder">Screenshot placeholder, 2026-10-23: the Create new file page, with the name box and the green Commit changes button circled.</div>
+      <figcaption>Circle the name box, then the green Commit changes button.</figcaption>
+    </figure>
+
+    <div class="stuck">
+      <p><strong>Stuck?</strong> Both files must sit at the top level of your site's home, not inside a folder. If you see a slash in the name box, you made a folder by accident. Delete the text in the name box and type the file name again.</p>
+    </div>
+
+    <h2 id="put-it-online">4. Put it online</h2>
+    <p>Your files are saved, but GitHub needs to be told to show them as a website.</p>
+    <ol>
+      <li>In your site's home on GitHub, click <strong>Settings</strong> (near the top, in the row of tabs).</li>
+      <li>On the left, click <strong>Pages</strong>.</li>
+      <li>If the page already says your site is live, skip to step 6.</li>
+      <li>Otherwise, under <strong>Build and deployment</strong>, set <strong>Source</strong> to <strong>Deploy from a branch</strong>.</li>
+      <li>Under <strong>Branch</strong>, choose <strong>main</strong> and the folder <strong>/ (root)</strong>, then click <strong>Save</strong>.</li>
+      <li>Wait a minute or two, then open <code>https://your-username.github.io</code> in a new tab. Your home page should appear.</li>
+    </ol>
+    <figure class="shot">
+      <div class="placeholder">Screenshot placeholder, 2026-10-23: Settings, Pages, with the Source, Branch, and Save controls circled.</div>
+      <figcaption>Circle Source, then Branch, then Save.</figcaption>
+    </figure>
+
+    <div class="stuck">
+      <p><strong>Stuck?</strong> A "404" or "There isn't a GitHub Pages site here" message usually means one of three things. It may not have finished yet, so wait five minutes and press refresh. The file may be named wrong, so check that it is exactly <code>index.html</code> at the top level. Or the Pages setting in step 4 may not be saved. If it still fails, tell your chat assistant what message you see.</p>
+    </div>
+
+    <p><strong>You have a live website.</strong> Anyone in the world can visit it now. Keep this address handy, because the next steps add your first post and your feed.</p>
+
+    <h2 id="write-your-first-post">5. Write your first post</h2>
+    <p>You write the words. Your chat assistant turns them into a web page and adds a link to it on your home page. For your first post, a short note like "Hello, this is my new site" is fine. You can delete it later.</p>
+
+    <h3 id="add-pictures">Add pictures first (optional)</h3>
+    <p>If your post has pictures, put them on GitHub before you write the post.</p>
+    <ol>
+      <li>Give each picture a simple file name: lowercase letters, numbers, and hyphens, ending in <code>.jpg</code> or <code>.png</code>. For example, <code>garden.jpg</code>. No spaces.</li>
+      <li>In your site's home on GitHub, click <strong>Add file</strong>, then <strong>Upload files</strong>.</li>
+      <li>Drag your pictures onto the page, then click <strong>Commit changes</strong>.</li>
+    </ol>
+    <div class="stuck">
+      <p><strong>Check your photos for your location.</strong> Photos taken on a phone can have the place they were taken hidden inside the file. Anyone who downloads the picture from your site could read it. Before you upload, ask your chat assistant how to remove location data from a photo on your phone model. Pictures you saved from a messaging app often already have it removed.</p>
+    </div>
+
+    <h3 id="first-post-prompt">Ask for your post</h3>
+    <p>This prompt needs two things pasted into it: your writing, and your current home page. To copy your home page, open your site's home on GitHub, click <code>index.html</code>, then click the <strong>Copy raw file</strong> button above the file's contents (it looks like two overlapping squares).</p>
+    <ol>
+      <li>Click <strong>Copy this</strong> on the box below.</li>
+      <li>Paste it into your chat assistant, but do not send it yet.</li>
+      <li>Replace every part in [SQUARE BRACKETS] with your own information, including the two big pastes at the bottom.</li>
+      <li>Send it.</li>
+    </ol>
+    <div class="prompt">
+<pre>You are helping me add a new post to my small personal website. I am not a programmer, so explain things in plain words.
+
+My website address: https://[YOUR GITHUB USERNAME].github.io
+Post title: [TITLE]
+Post date (year-month-day): [2026-01-31]
+File name for the post: [SHORT-NAME-WITH-HYPHENS, OR WRITE "CHOOSE FOR ME"]
+
+Pictures, optional. For each one, give its file name and a plain description for people who cannot see it. Write NONE if there are none.
+- [FILE NAME]: [WHAT IT SHOWS]
+
+Rules for my writing: use my words exactly as written. Do not fix, shorten, reword, or improve them. Only turn them into HTML: paragraphs, and headings or lists where my text clearly has them. Show each picture where I wrote its file name in square brackets.
+
+Make exactly two files:
+1. posts/[the file name].html, the new post page
+2. index.html, my current home page with this post added
+
+Rules for the post page:
+- Plain HTML5 only. No JavaScript. All styling comes from the existing stylesheet at /style.css. Never use style attributes or style tags.
+- Never load anything from another website: no fonts, images, scripts, trackers, social buttons, embeds, or forms.
+- Use the same head tags as my current index.html: the Content-Security-Policy meta tag, the no-referrer tag, the viewport tag, the language, and the RSS feed link.
+- A header with my site name linking back to /, the post title as the main heading, the date in a time tag, then my writing.
+- Pictures have the description as their alt text.
+
+Rules for index.html: change only two things. Add this post at the top of the list with the class post-list, with a link to /posts/[the file name].html and the date in a time tag. If there is a sentence saying the first post is coming soon, remove it. Change nothing else.
+
+Show each file in its own code block with the exact file name on the line just above it. After the files, tell me in plain words anything you added that I did not ask for.
+
+----- MY WRITING STARTS BELOW THIS LINE -----
+[PASTE YOUR WRITING HERE]
+
+----- MY CURRENT index.html STARTS BELOW THIS LINE -----
+[PASTE YOUR CURRENT index.html HERE]</pre>
+      <button type="button">Copy this</button>
+    </div>
+    <p>Run the same check as before. It takes ten seconds.</p>
+    <div class="prompt">
+<pre>Look at the two files you just wrote. Does anything in them load from another website, use JavaScript, or use a style attribute or style tag? Did you change any of my words? Answer yes or no to each. If yes to any, list each one and give me corrected versions of both files.</pre>
+      <button type="button">Copy this</button>
+    </div>
+
+    <h3 id="save-first-post-files">Save the two files</h3>
+    <p><strong>The new post page:</strong></p>
+    <ol>
+      <li>In your site's home on GitHub, click <strong>Add file</strong>, then <strong>Create new file</strong>.</li>
+      <li>In the name box, type <code>posts/</code> and then the file name from your chat assistant, such as <code>posts/hello-world.html</code>. When you type the slash, GitHub makes the <code>posts</code> folder for you.</li>
+      <li>Paste the contents of the post page into the large box, then click <strong>Commit changes</strong> twice, as before.</li>
+    </ol>
+    <p><strong>The updated home page:</strong></p>
+    <ol>
+      <li>Click <code>index.html</code> in your site's home to open it.</li>
+      <li>Click the pencil button at the top right of the file. This is "Edit this file".</li>
+      <li>Click into the editing box, select everything (press <kbd>Ctrl</kbd> and <kbd>A</kbd> together, or <kbd>Cmd</kbd> and <kbd>A</kbd> on a Mac), and paste the new <code>index.html</code> over it.</li>
+      <li>Click <strong>Commit changes</strong> twice.</li>
+    </ol>
+    <p>Wait a minute, then open <code>https://your-username.github.io</code>. Your post should be listed. Click it to read it.</p>
+    <figure class="shot">
+      <div class="placeholder">Screenshot placeholder, 2026-10-23: an index.html file page, with the pencil (Edit this file) button circled.</div>
+      <figcaption>Circle the pencil button at the top right of the file.</figcaption>
+    </figure>
+
+    <div class="stuck">
+      <p><strong>Stuck?</strong> If your home page does not show the new post, wait a few minutes and refresh with Ctrl and F5 (Cmd and Shift and R on a Mac). If the post page itself shows a 404, check that the file is inside the <code>posts</code> folder and the name matches the link on your home page letter for letter. If you saved something wrong, Step 8 shows how to undo it.</p>
+    </div>
+
+    <h2 id="add-your-feed">6. Add your RSS feed</h2>
+    <p>An RSS feed is a single file that lists your posts so people can follow you with a free feed reader app. It needs no account and no tracking. Your assistant builds it from your home page, which already lists your posts.</p>
+    <ol>
+      <li>Copy your current <code>index.html</code> again from GitHub, as in Step 5.</li>
+      <li>Click <strong>Copy this</strong> on the box below, paste it into your chat assistant, and replace every [SQUARE BRACKET] part.</li>
+    </ol>
+    <div class="prompt">
+<pre>You are helping me make an RSS feed for my small personal website. I am not a programmer, so explain things in plain words.
+
+My website address: https://[YOUR GITHUB USERNAME].github.io
+My site name: [YOUR SITE NAME]
+A one-sentence description of my site: [DESCRIPTION]
+
+Make exactly one file: feed.xml
+
+Rules:
+- Valid RSS 2.0 with an XML declaration at the top. Include an atom:link with rel="self" pointing to my feed address, which is my website address followed by /feed.xml.
+- One item for every post in the list on my home page below, newest first. Each item has the title, the full link starting with https://, a guid that is the same as the link (with isPermaLink set to true), and a pubDate.
+- Write each pubDate from the date shown in the post's time tag, using 12:00:00 +0000 as the time. Leave out the day of the week, because it is easy to get wrong.
+- Replace any special characters in titles (like ampersands) so the XML stays valid.
+- Do not add anything that loads from another website.
+
+Show the file in a code block with the file name on the line just above it. Then tell me in plain words anything you added that I did not ask for.
+
+----- MY CURRENT index.html STARTS BELOW THIS LINE -----
+[PASTE YOUR CURRENT index.html HERE]</pre>
+      <button type="button">Copy this</button>
+    </div>
+    <ol start="3">
+      <li>In your site's home on GitHub, click <strong>Add file</strong>, then <strong>Create new file</strong>.</li>
+      <li>Name it <code>feed.xml</code>, paste the contents, and click <strong>Commit changes</strong> twice.</li>
+      <li>After a minute, open <code>https://your-username.github.io/feed.xml</code>. You should see a page of plain text or tags, not a 404. Your browser may show it differently or offer to download it. Either is fine.</li>
+    </ol>
+    <p>To check that it works, copy that address into a free feed reader app on your phone or computer, such as NetNewsWire, Feedly, or Inoreader. Your post should appear. To check it more carefully, paste the contents of the feed into the box at <a href="https://validator.w3.org/feed/#validate_by_input">validator.w3.org/feed</a>. That page is made by the web's standards group, and your feed is public anyway, so nothing private is shared.</p>
+
+    <div class="stuck">
+      <p><strong>Stuck?</strong> If the validator reports a problem, paste the problem message and your feed into your chat assistant and ask for a corrected <code>feed.xml</code>. A warning about the missing weekday in dates is safe to ignore.</p>
+    </div>
+
+    <p><strong>You now have the whole set:</strong> a home page, posts, and a feed. The next step is the routine you will repeat for every new post.</p>
+
+    <h2 id="publish-the-next-post">7. Publish your next post</h2>
+    <p>This is the routine you will repeat for every post, and it takes about five minutes. Each time, three files change: the new post, your home page, and your feed.</p>
+    <ol>
+      <li>Upload any pictures (see <a href="#add-pictures">Add pictures first</a>).</li>
+      <li>Copy your current <code>index.html</code> and <code>feed.xml</code> from GitHub using the <strong>Copy raw file</strong> button.</li>
+      <li>Paste the prompt below into your chat assistant, fill in the [SQUARE BRACKETS], and send it.</li>
+      <li>Run the check prompt that follows.</li>
+      <li>Save the three files on GitHub, then look at your site.</li>
+    </ol>
+
+    <h3 id="next-post-prompt">The prompt for every new post</h3>
+    <div class="prompt">
+<pre>You are helping me add a new post to my small personal website. I am not a programmer, so explain things in plain words.
+
+My website address: https://[YOUR GITHUB USERNAME].github.io
+Post title: [TITLE]
+Post date (year-month-day): [2026-01-31]
+File name for the post: [SHORT-NAME-WITH-HYPHENS, OR WRITE "CHOOSE FOR ME"]
+
+Pictures, optional. For each one, give its file name and a plain description for people who cannot see it. Write NONE if there are none.
+- [FILE NAME]: [WHAT IT SHOWS]
+
+Rules for my writing: use my words exactly as written. Do not fix, shorten, reword, or improve them. Only turn them into HTML: paragraphs, and headings or lists where my text clearly has them. Show each picture where I wrote its file name in square brackets.
+
+Make exactly three files:
+1. posts/[the file name].html, the new post page
+2. index.html, my current home page with this post added
+3. feed.xml, my current feed with this post added
+
+Rules for the post page:
+- Plain HTML5 only. No JavaScript. All styling comes from the existing stylesheet at /style.css. Never use style attributes or style tags.
+- Never load anything from another website: no fonts, images, scripts, trackers, social buttons, embeds, or forms.
+- Use the same head tags as my current index.html: the Content-Security-Policy meta tag, the no-referrer tag, the viewport tag, the language, and the RSS feed link.
+- A header with my site name linking back to /, the post title as the main heading, the date in a time tag, then my writing.
+- Pictures have the description as their alt text.
+
+Rules for index.html: change only one thing. Add this post at the top of the list with the class post-list, written exactly like the other items, with a link to /posts/[the file name].html and the date in a time tag. Keep every existing post in the list. Change nothing else.
+
+Rules for feed.xml: add one new item at the top, written exactly like the existing items, with the full https:// link, a guid, and a pubDate in the same style as the existing ones, leaving out the day of the week. If the feed now has more than 20 items, drop the oldest from the feed only. Change nothing else.
+
+Show each file in its own code block with the exact file name on the line just above it. After the files, tell me in plain words anything you added that I did not ask for.
+
+----- MY WRITING STARTS BELOW THIS LINE -----
+[PASTE YOUR WRITING HERE]
+
+----- MY CURRENT index.html STARTS BELOW THIS LINE -----
+[PASTE YOUR CURRENT index.html HERE]
+
+----- MY CURRENT feed.xml STARTS BELOW THIS LINE -----
+[PASTE YOUR CURRENT feed.xml HERE]</pre>
+      <button type="button">Copy this</button>
+    </div>
+
+    <h3 id="check-the-next-post">Check before you save</h3>
+    <div class="prompt">
+<pre>Compare the index.html and feed.xml you just wrote with the versions I gave you. Did you remove, reorder, or change any existing post entry, other than dropping the oldest feed item if there were more than 20? Did you change any of my words? Does anything load from another website, use JavaScript, or use a style attribute or style tag? Answer yes or no to each. If yes to any, list each one and give me corrected versions of the files.</pre>
+      <button type="button">Copy this</button>
+    </div>
+
+    <h3 id="save-next-post-files">Save the three files</h3>
+    <ol>
+      <li><strong>The new post:</strong> <strong>Add file</strong>, then <strong>Create new file</strong>. Type <code>posts/</code> and the file name in the name box, paste, and click <strong>Commit changes</strong> twice.</li>
+      <li><strong>Your home page:</strong> click <code>index.html</code>, click the pencil, select everything, paste the new version over it, and click <strong>Commit changes</strong> twice.</li>
+      <li><strong>Your feed:</strong> do the same with <code>feed.xml</code>.</li>
+    </ol>
+    <p>Wait a minute and open your site. The new post should be at the top of the list. If anything looks wrong, Step 8 shows how to go back.</p>
+
+    <div class="stuck">
+      <p><strong>Stuck?</strong> If you saved the post page and the home page but not the feed, nothing breaks. People who follow you by RSS will not see the post until the feed is saved. Do the last file when you can.</p>
+    </div>
+
+    <h2 id="undo-a-mistake">8. Undo a mistake</h2>
+    <p>GitHub keeps every earlier version of every file. Nothing you save is lost, which is why it is safe to try things.</p>
+
+    <h3 id="go-back-to-an-older-version">Put a file back the way it was</h3>
+    <ol>
+      <li>In your site's home on GitHub, click the file you want to fix, such as <code>index.html</code>.</li>
+      <li>Click the <strong>History</strong> button near the top right of the file (it looks like a clock).</li>
+      <li>You will see a list of saves, newest first. Click the one from before the mistake.</li>
+      <li>Find the option to <strong>View file</strong> (it may be under a button with three dots), then click <strong>Copy raw file</strong>.</li>
+      <li>Go back to the file, click the pencil, select everything, paste, and click <strong>Commit changes</strong> twice.</li>
+    </ol>
+    <div class="stuck">
+      <p><strong>Stuck?</strong> GitHub moves these buttons around from time to time. Tell your chat assistant what you see on your screen and ask where the older version of a file is.</p>
+    </div>
+
+    <h3 id="delete-a-post">Take a post down</h3>
+    <ol>
+      <li>Click the post's file in the <code>posts</code> folder.</li>
+      <li>Click the three dots at the top right of the file, then <strong>Delete file</strong>, then <strong>Commit changes</strong>.</li>
+      <li>Remove the post from your home page and feed with the prompt below, then save both files.</li>
+    </ol>
+    <div class="prompt">
+<pre>I am removing a post from my small personal website. Here are my current index.html and feed.xml. Remove the post titled "[POST TITLE]" from both. Change nothing else, and do not change any other post. Show each file in its own code block with the exact file name on the line just above it.
+
+----- MY CURRENT index.html STARTS BELOW THIS LINE -----
+[PASTE YOUR CURRENT index.html HERE]
+
+----- MY CURRENT feed.xml STARTS BELOW THIS LINE -----
+[PASTE YOUR CURRENT feed.xml HERE]</pre>
+      <button type="button">Copy this</button>
+    </div>
+
+    <div class="stuck">
+      <p><strong>Deleting a file does not make it private again.</strong> Your site's home is public, and the old versions in its history are public too. If you published something you did not mean to, such as a password, a phone number, a private address, or a photo with its location inside, treat it as already seen. Change any password that was exposed.</p>
+      <p>To get rid of it completely, you would delete the whole site's home and start again with clean files. That is permanent and removes all your saved versions, so first make a copy of your files (see Step 9). Even then, search engines and web archives may have kept their own copies, and no one can remove those for you.</p>
+    </div>
+
+    <h2 id="keep-it-safe">9. Keep it safe</h2>
+    <p>Your site has nothing to break into. What is left is you, your account, and what you choose to add. These habits cover the rest.</p>
+
+    <h3 id="protect-your-account">Protect your account</h3>
+    <ul>
+      <li>Keep the unique password and two-step sign-in from <a href="#make-github-account">Step 1</a>.</li>
+      <li>Hide your email address. On GitHub, click your picture at the top right, then <strong>Settings</strong>, then <strong>Emails</strong>. Turn on <strong>Keep my email addresses private</strong>. Otherwise your email can be stamped on the saves you make, and your site's history is public.</li>
+      <li>GitHub will never ask for your password by email or text. If a message tells you your account is in danger and links you somewhere, close it. Type <code>github.com</code> into the address bar yourself.</li>
+      <li>If GitHub asks you to allow an app or "authorize" something you did not start, say no.</li>
+    </ul>
+
+    <h3 id="add-nothing-from-outside">Add nothing that loads from outside</h3>
+    <p>Comment boxes, newsletter sign-ups, share buttons, chat bubbles, videos, maps, and counters all work by loading someone else's code onto your page. That code can track your readers or be changed later without your knowledge. It also breaks the safety your site has now.</p>
+    <p>If an assistant suggests something and it asks you to paste a script, an iframe, or a "snippet", do not. If you want a feature, ask your assistant whether it can be done with plain HTML and no outside code. Often the answer is a simple link.</p>
+    <p>A contact link on your site shows your email address to anyone, including spam robots. If that matters, make a separate email address just for the site.</p>
+
+    <h3 id="keep-a-copy">Keep a copy</h3>
+    <ul>
+      <li>Keep your writing in your own notes app or a folder on your computer, not only on the site.</li>
+      <li>Once in a while, make a backup of the whole site: open your site's home on GitHub, click the green <strong>Code</strong> button, then <strong>Download ZIP</strong>. Keep the file somewhere safe.</li>
+      <li>Once a month, open your site and your feed and check they still look right.</li>
+    </ul>
+
+    <p><strong>That is the whole guide.</strong> You have a website that costs nothing, shows no ads, tracks no one, and has no database, no plugins, and no login page for anyone to attack. Write what you want, as often as you want.</p>
+
+  </main>
+
+  <footer>
+    <p>This guide is free to copy, change, translate, and share, including for money, as long as you credit the original. It is released under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0</a>. Not affiliated with GitHub or any chat assistant company.</p>
+  </footer>
+</body>
+</html>
