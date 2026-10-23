@@ -1,4 +1,8 @@
-# Build your own website, free (working title)
+# Plainhold
+
+*Plain files. No landlord.*
+
+Build your own website, free, with nothing to hack. The name is *plain* files that you *hold*, like freehold property, as opposed to renting space from a host that can fail you.
 
 A plain-words guide for non-technical people who want a blog or small-business site with nothing for hackers to attack. The reader uses a free chat assistant to write plain HTML, saves the files with GitHub's web editor, and publishes on GitHub Pages. No installs, no terminal, no accounts beyond GitHub.
 
@@ -53,7 +57,8 @@ Push the repo to GitHub, then turn on GitHub Pages under Settings, then Pages, u
 - [ ] Click a Copy button in a real browser and confirm the "Copied" message. Only the fallback path has been tested.
 - [x] Write the example site in `examples/site/`.
 - [ ] Use the example site to check real assistant output: diff what each assistant returns against it, and run the feed through a validator such as the W3C feed validator.
-- [ ] Pick a name and update the title and this README.
+- [x] Pick a name: Plainhold. Quick checks found no GitHub repo or web hit with that name, but no trademark search was done.
+- [ ] Create the GitHub repo, named `plainhold`, as Public with no README.
 - [ ] Later: your own explanations of HTML and CSS, as pages linked from the table of contents.
 
 ## License
