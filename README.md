@@ -51,7 +51,8 @@ Push the repo to GitHub, then turn on GitHub Pages under Settings, then Pages, u
 - [ ] Replace the screenshot placeholders, dated 2026-10-23, with real screenshots that have one circled element each.
 - [ ] Try each prompt on two or three free chat assistants and note what they get wrong.
 - [ ] Click a Copy button in a real browser and confirm the "Copied" message. Only the fallback path has been tested.
-- [ ] Write the example site in `examples/site/` and use it to check real assistant output.
+- [x] Write the example site in `examples/site/`.
+- [ ] Use the example site to check real assistant output: diff what each assistant returns against it, and run the feed through a validator such as the W3C feed validator.
 - [ ] Pick a name and update the title and this README.
 - [ ] Later: your own explanations of HTML and CSS, as pages linked from the table of contents.
 
